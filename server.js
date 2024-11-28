@@ -3,14 +3,14 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser'); // Add this line to import body parser
 const session = require('express-session');
-const redis = require('redis');
+const Redis = require('ioredis');
 const connectRedis = require('connect-redis');
 const RedisStore = connectRedis(session);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Redis setup
-const client = redis.createClient({
+const client = Redis.createClient({
   url: process.env.REDIS_URL // Use the Redis URL from Heroku config
 });
 
