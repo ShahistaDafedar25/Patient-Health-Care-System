@@ -5,12 +5,11 @@ const bodyParser = require('body-parser'); // Add this line to import body parse
 const session = require('express-session');
 const redis = require('redis');
 const connectRedis = require('connect-redis');
-
+const RedisStore = connectRedis(session);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Redis setup
-const RedisStore = connectRedis(session);
 const client = redis.createClient({
   url: process.env.REDIS_URL // Use the Redis URL from Heroku config
 });
