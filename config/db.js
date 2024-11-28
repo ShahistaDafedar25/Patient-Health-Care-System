@@ -1,12 +1,19 @@
 const mysql = require('mysql2');
 
-// Create a connection to the database
-const connection = mysql.createConnection({
-    host: 'localhost',   // Replace with your database host
-    user: 'root',   // Replace with your MySQL user
-    password: 'Shahista@123',  
-    database: 'health_management_system' 
-});
+// Check if JAWSDB_URL environment variable is set (Heroku will automatically set this)
+const connectionConfig = process.env.JAWSDB_URL
+    ? {
+        uri: process.env.JAWSDB_URL, // Use Heroku's JawsDB connection string
+      }
+    : {
+        host: 'localhost',   // Localhost for local development
+        user: 'root',        // Your local MySQL user (e.g., 'root' for local development)
+        password: 'Shahista@123',  // Your local MySQL password
+        database: 'health_management_system'  // The name of your local database
+      };
+
+// Create a connection to the database using the appropriate configuration
+const connection = mysql.createConnection(connectionConfig.uri || connectionConfig);
 
 // Connect to the database
 connection.connect((err) => {
@@ -18,3 +25,4 @@ connection.connect((err) => {
 });
 
 module.exports = connection;
+
