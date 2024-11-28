@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Records</title>
+
+    <!-- Bootstrap CSS -->
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+        rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .record-card {
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+        }
+        .patient-details, .current-diagnosis {
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        .btn-custom {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+        }
+        .btn-custom:hover {
+            background-color: #0b5ed7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Medical Records</h1>
+
+        <!-- Patient Details Section -->
+        <section class="patient-details">
+            <h2 class="mb-3">Patient Details</h2>
+            <p><strong>ID:</strong><%= patient.id %></p>
+            <p><strong>Patient Name:</strong> <%= patient.name %></p>
+            <p><strong>Date of Birth:</strong> <%= patient.dateofbirth %></p>
+            <p><strong>Mobile No.:</strong> <%= patient.mobileno %></p>
+            <p><strong>Address:</strong> <%= patient.address %></p>   
+        </section>
+
+        <!-- Medical Records Section -->
+        <section>
+            <h2 class="mb-3">Medical Records</h2>
+            <% if (records.length > 0) { %>
+                <% records.forEach(record => { %>
+                    <div class="record-card">
+                        <h5 class="mb-2">Doctor: <%= record.doctor_name %></h5>
+                        <p><strong>Disease:</strong> <%= record.disease_category %></p>
+                        <p><strong>Prescription:</strong> <%= record.prescription %></p>
+                        <p><strong>Medicine:</strong> <%= record.medicine %></p>
+                        <p><strong>Diagnosis Report:</strong> <%= record.diagnosis_report ? 'Yes' : 'No' %></p>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p class="text-muted">No medical records found for this patient.</p>
+            <% } %>
+        </section>
+
+        <!-- Current Diagnosis Medication Section -->
+        <section class="current-diagnosis">
+            <h2 class="mb-3">Current Diagnosis Medication</h2>      
+            <form action="/doctor/patients/<%= patient.id %>/records" method="POST" enctype="multipart/form-data">
+                <label for="disease_category">Disease category:</label>
+                <input type="text" id="disease_category" name="disease_category" required>
+                
+                <label for="prescription">Prescription:</label>
+                <input type="text" id="prescription" name="prescription" required>
+                
+                <label for="medicine">Medicine:</label>
+                <input type="text" id="medicine" name="medicine" required>
+                
+                <label for="diagnosis_report">Any Diagnosis Report:</label>
+                <select id="diagnosis_report" name="diagnosis_report" required>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                
+                <label for="report_file">Upload Diagnosis Report:</label>
+                <input type="file" id="report_file" name="report_file">
+            
+                <button type="submit">Save</button>
+            </form>
+            
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 HealthCare Pro. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script 
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+    </script>
+    
+</body>
+</html>

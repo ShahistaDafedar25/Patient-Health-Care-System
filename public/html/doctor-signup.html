@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor Signup</title>
+    <link rel="stylesheet" href="../css/doctor.css" />
+     <!-- Link to Bootstrap CSS -->
+     <link rel="stylesheet" href="/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="signup-container">
+    <h2>Doctor Signup</h2>
+    <form action="/doctor/signup" method="POST">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required /><br />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required /><br />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required /><br />
+
+      <label for="confirm_password">Confirm Password:</label>
+      <input type="password" id="confirm_password" name="confirm_password" required /><br />
+
+      <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="/doctor/login">Login</a></p>
+</div>
+<!-- Link to Bootstrap JavaScript (optional, if using JS components) -->
+<script src="/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

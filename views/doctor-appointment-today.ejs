@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheduled Appointments</title>
+
+    <!-- Bootstrap CSS -->
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 50px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: #343a40;
+        }
+        .appointment-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+        .appointment-card h3 {
+            color: #007bff;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .appointment-card p {
+            color: #555;
+            font-size: 1.1rem;
+        }
+        .no-appointments {
+            text-align: center;
+            color: #6c757d;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Scheduled Appointments</h1>
+
+        <div class="appointment-list">
+            <% if (appointments.length > 0) { %>
+                <% appointments.forEach(appointment => { %>
+                    <div class="appointment-card">
+                        <h3>Patient: <%= appointment.patient_name %></h3>
+                        <p>Appointment Date: <%= appointment.Appointment_date %></p>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p class="no-appointments">No appointments for today.</p>
+            <% } %>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script 
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+/* General styling for the body */
+body { 
+    font-family: Arial, sans-serif;
+    background: linear-gradient(45deg, #fafafa, #05dafb);
+    margin: 0;
+    padding: 0;
+}
+
+/* Hero section styling */
+.hero-section {
+    position: relative;
+    background-image: url('/images/hero_image.jpg'); /* Ensure this path is correct */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 150px 0;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 1); /* Dark overlay with transparency */
+    filter: blur(5px); /* Apply blur effect */
+    z-index: -1; /* Make sure the blur effect is behind the text */
+}
+
+/* Styling for portal buttons in hero section */
+.portal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.portal-btn {
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.portal-btn:hover {
+    background-color: #45a049;
+}
+/* Services Section */
+
+.avalibility {
+    padding: 60px 0;
+}
+
+.option {
+    background-color: #f4f4f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+}
+
+.option:hover {
+    transform: translateY(-10px);
+}
+
+.option .image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+}
+
+.info {
+    padding: 15px;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.infor {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.panel1 {
+    height: 20px;
+}
+
+@media (max-width: 768px) {
+    .option {
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" href="../css/main.css" /> <!-- Updated path to the CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/main.js" defer></script> <!-- Updated path to the JS -->
+  </head>
+  <body>
+    <!-- Navbar with Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: black; height: 70px;">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#" style="color: white; font-size: 1.5rem;">HealthCare</a>
+          <!-- Toggle Button for Mobile Screens -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Navbar Links -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto mb-1 mb-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="./index.html" style="color: white; font-size: 1.25rem;">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#" style="color: white; font-size: 1.25rem;">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="./index.html" style="color: white; font-size: 1.25rem;">Services</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link disabled" href="#" style="color: gray; font-size: 1.25rem;">Contact</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+    <section class="dashboard" id="dashboard">
+      <h1>Welcome to the Doctor Healthcare Management Dashboard</h1>
+      <div class="grid-container">
+        
+        <div class="card" id="appointments-card">
+          <h3>schedule Appointments</h3>
+          <p>schedule appointments</p>
+          <button class="card-btn" onclick="window.location.href='/doctor/doctor-appointment'">
+            Book Appointments
+          </button>
+        </div>
+        <div class="card" id="viewappointment-card">
+          <h3>Appointments</h3>
+          <p>scheduled appointments</p>
+          <button class="card-btn" onclick="window.location.href='/doctor/doctor-appointment-today'">
+            View Appointments
+          </button>
+        </div>
+        <div class="card" id="records-card">
+          <h3>Check Medical Records</h3>
+          <p>Access patient medical records</p>
+          <button class="card-btn" onclick="window.location.href='/doctor/patients'">
+            Go to Medical Records
+          </button>
+        </div>
+        <div class="card" id="reports-card">
+          <h3>Reports Suggestion</h3>
+          <p>Any Feedbacks</p>
+          <button class="card-btn" onclick="navigateTo('reports')">
+            Go to Feedbacks
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 HealthCare Pro. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Link to Bootstrap JavaScript (optional, if using JS components) -->
+    <script src="/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

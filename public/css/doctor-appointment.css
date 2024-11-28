@@ -1,0 +1,46 @@
+.appointments {
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+#appointment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.appointment-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.appointment-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.appointment-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.schedule-btn, .cancel-btn {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.schedule-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.cancel-btn {
+    background-color: #f44336;
+    color: white;
+}
