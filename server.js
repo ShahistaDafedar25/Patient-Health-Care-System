@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser'); // Add this line to import body parser
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;;
 // const router = require('./routes/router'); // Import the central router
 // app.use('/', router); // Use the central router
 
