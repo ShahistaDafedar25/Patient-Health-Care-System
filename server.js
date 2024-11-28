@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser'); // Add this line to import body parser
@@ -15,7 +16,10 @@ const client = redis.createClient({
 });
 
 // Connect to Redis
-client.connect().catch(console.error);
+client.connect().catch(err => {
+    console.error("Error connecting to Redis", err);
+});
+
 
 // Set up session with Redis store
 app.use(session({
