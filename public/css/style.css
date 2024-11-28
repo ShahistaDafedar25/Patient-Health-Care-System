@@ -9,7 +9,7 @@ body {
 /* Hero section styling */
 .hero-section {
     position: relative;
-    background-image: url('/images/hero_image.jpg'); /* Ensure this path is correct */
+    background-image: url('../images/hero_image.jpg'); /* Ensure this path is correct */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
