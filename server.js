@@ -3,36 +3,22 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser'); // Add this line to import body parser
 const session = require('express-session');
-const Redis = require('ioredis');
-const connectRedis = require('connect-redis');
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Redis setup
-const client = new Redis({
-    url:'rediss://:p16fe2eecfbe29b21dd664179e2e4109cdf95f6601a81c63d9537a753e174b8ea@ec2-23-20-87-41.compute-1.amazonaws.com:10800' // Replace with your Redis URL, e.g., from Heroku config
-  });
 
-// Connect to Redis
-client.connect().catch(err => {
-    console.error("Error connecting to Redis", err);
-});
-
-const RedisStore = connectRedis(session);
-
-// Set up session with Redis store
-app.use(session({
-    store: new RedisStore({ client }),
-    secret: 'your-secret-key', // Replace with a secure secret
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      secure: process.env.NODE_ENV === 'production', // Use true if in production with HTTPS
-      httpOnly: true, // To prevent client-side JavaScript from accessing the cookie
-      maxAge: 1000 * 60 * 60 * 24 // Example: 1 day expiration for the session
-    }
-  }));
+app.use(
+    session({
+      secret: 'your-secret-key',
+      resave: false,
+      saveUninitialized: false,
+      cookie: {
+        secure: false, // Set to true if you're using https
+        httpOnly: true,
+        maxAge: 1000 * 60 * 60 * 24 // 1 day
+      }
+    })
+  )
 
 // Set up view engine and static file paths
 app.set('view engine', 'ejs');
